@@ -1,6 +1,8 @@
 const mongoose = require("mongoose")
 const shortid = require("shortid")
 const Url  = require("../models/url")
+
+
 async function generateShortUrl(req,res)
 {
     const body = req.body;
@@ -12,7 +14,14 @@ async function generateShortUrl(req,res)
         redirectUrl:body.url,
         visitHistory:[]
     })
-    return res.status(201).json({id:shId});
+
+   
+    
+    return res.render("home",{
+        id:shId,
+        
+    })
+
 }
 
 
